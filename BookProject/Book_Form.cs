@@ -19,6 +19,7 @@ namespace BookProject
             {
                 dataGridView_book.DataSource = DataManager.Books;
             }
+
         }
 
         private void button_close_Click(object sender, EventArgs e)
@@ -78,6 +79,7 @@ namespace BookProject
             }
             if (book == null)
                 MessageBox.Show("존재하지 않는 도서입니다.");
+
         }
 
         private void button_delete_Click(object sender, EventArgs e)
@@ -106,5 +108,13 @@ namespace BookProject
                     dataGridView_book.DataSource = DataManager.Books;
             }
         }
+        private void dataGridView_book_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Book book = dataGridView_book.CurrentRow.DataBoundItem as Book;
+            textBox_Isbn.Text = book.Isbn;
+            textBox_bookName.Text = book.Name;
+            textBox_publisher.Text = book.Publisher;
+            textBox_page.Text = book.Page.ToString();
+        }   
     }
 }

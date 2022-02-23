@@ -42,10 +42,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView_bookManager = new System.Windows.Forms.DataGridView();
-            this.timer_now = new System.Windows.Forms.Timer(this.components);
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel_now = new System.Windows.Forms.ToolStripStatusLabel();
-            this.button_close = new System.Windows.Forms.Button();
             this.isbnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.publisherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,11 +50,23 @@
             this.isBorrowedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.borrowedAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.timer_now = new System.Windows.Forms.Timer(this.components);
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel_now = new System.Windows.Forms.ToolStripStatusLabel();
+            this.button_close = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dataGridView_user = new System.Windows.Forms.DataGridView();
+            this.userIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_bookManager)).BeginInit();
-            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).BeginInit();
+            this.statusStrip1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_user)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // bookManeger
@@ -79,6 +87,7 @@
             this.userManager.TabIndex = 1;
             this.userManager.Text = "사용자 관리";
             this.userManager.UseVisualStyleBackColor = true;
+            this.userManager.Click += new System.EventHandler(this.userManager_Click);
             // 
             // groupBox1
             // 
@@ -105,6 +114,7 @@
             this.button_Return.TabIndex = 7;
             this.button_Return.Text = "반납";
             this.button_Return.UseVisualStyleBackColor = true;
+            this.button_Return.Click += new System.EventHandler(this.button_Return_Click);
             // 
             // button_Borrow
             // 
@@ -114,6 +124,7 @@
             this.button_Borrow.TabIndex = 6;
             this.button_Borrow.Text = "대여";
             this.button_Borrow.UseVisualStyleBackColor = true;
+            this.button_Borrow.Click += new System.EventHandler(this.button_Borrow_Click);
             // 
             // textBox_userId
             // 
@@ -191,41 +202,7 @@
             this.dataGridView_bookManager.RowTemplate.Height = 23;
             this.dataGridView_bookManager.Size = new System.Drawing.Size(756, 222);
             this.dataGridView_bookManager.TabIndex = 0;
-            // 
-            // timer_now
-            // 
-            this.timer_now.Enabled = true;
-            this.timer_now.Interval = 1000;
-            this.timer_now.Tick += new System.EventHandler(this.timer_now_Tick);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel_now});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 443);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(817, 22);
-            this.statusStrip1.TabIndex = 5;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel_now
-            // 
-            this.toolStripStatusLabel_now.Name = "toolStripStatusLabel_now";
-            this.toolStripStatusLabel_now.Size = new System.Drawing.Size(10, 17);
-            this.toolStripStatusLabel_now.Text = ".";
-            // 
-            // button_close
-            // 
-            this.button_close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button_close.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_close.Image = global::BookProject.Properties.Resources.icons8_delete_50px;
-            this.button_close.Location = new System.Drawing.Point(794, -1);
-            this.button_close.Name = "button_close";
-            this.button_close.Size = new System.Drawing.Size(25, 27);
-            this.button_close.TabIndex = 4;
-            this.button_close.UseVisualStyleBackColor = true;
-            this.button_close.Click += new System.EventHandler(this.button_close_Click);
+            this.dataGridView_bookManager.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Book_GridView_CellClick);
             // 
             // isbnDataGridViewTextBoxColumn
             // 
@@ -273,11 +250,87 @@
             // 
             this.bookBindingSource.DataSource = typeof(BookProject.Book);
             // 
+            // timer_now
+            // 
+            this.timer_now.Enabled = true;
+            this.timer_now.Interval = 1000;
+            this.timer_now.Tick += new System.EventHandler(this.timer_now_Tick);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel_now});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 443);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(817, 22);
+            this.statusStrip1.TabIndex = 5;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel_now
+            // 
+            this.toolStripStatusLabel_now.Name = "toolStripStatusLabel_now";
+            this.toolStripStatusLabel_now.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel_now.Text = ".";
+            // 
+            // button_close
+            // 
+            this.button_close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button_close.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_close.Image = global::BookProject.Properties.Resources.icons8_delete_50px;
+            this.button_close.Location = new System.Drawing.Point(794, -1);
+            this.button_close.Name = "button_close";
+            this.button_close.Size = new System.Drawing.Size(25, 27);
+            this.button_close.TabIndex = 4;
+            this.button_close.UseVisualStyleBackColor = true;
+            this.button_close.Click += new System.EventHandler(this.button_close_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dataGridView_user);
+            this.groupBox3.Location = new System.Drawing.Point(460, 51);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(237, 114);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "사용자 현황";
+            // 
+            // dataGridView_user
+            // 
+            this.dataGridView_user.AutoGenerateColumns = false;
+            this.dataGridView_user.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_user.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.userIdDataGridViewTextBoxColumn1,
+            this.nameDataGridViewTextBoxColumn1});
+            this.dataGridView_user.DataSource = this.userBindingSource;
+            this.dataGridView_user.Location = new System.Drawing.Point(6, 26);
+            this.dataGridView_user.Name = "dataGridView_user";
+            this.dataGridView_user.RowTemplate.Height = 23;
+            this.dataGridView_user.Size = new System.Drawing.Size(225, 82);
+            this.dataGridView_user.TabIndex = 0;
+            // 
+            // userIdDataGridViewTextBoxColumn1
+            // 
+            this.userIdDataGridViewTextBoxColumn1.DataPropertyName = "UserId";
+            this.userIdDataGridViewTextBoxColumn1.HeaderText = "UserId";
+            this.userIdDataGridViewTextBoxColumn1.Name = "userIdDataGridViewTextBoxColumn1";
+            // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataSource = typeof(BookProject.User);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 465);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.button_close);
             this.Controls.Add(this.groupBox2);
@@ -292,9 +345,12 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_bookManager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_user)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -327,6 +383,11 @@
         private System.Windows.Forms.Timer timer_now;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_now;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridView dataGridView_user;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userIdDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.BindingSource userBindingSource;
     }
 }
 

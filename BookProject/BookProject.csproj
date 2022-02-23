@@ -106,6 +106,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\icons8_delete_50px.png" />
+    <Content Include="Resources\icons8_pencil_30px.png" />
+    <Content Include="Resources\icons8_plus_math_30px.png" />
+    <Content Include="Resources\icons8_subtract_30px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
