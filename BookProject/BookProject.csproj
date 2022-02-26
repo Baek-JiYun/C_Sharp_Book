@@ -105,10 +105,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\back.png" />
+    <Content Include="Resources\icons8_book_and_pencil_30px.png" />
     <Content Include="Resources\icons8_delete_50px.png" />
+    <Content Include="Resources\icons8_find_user_male_30px.png" />
+    <Content Include="Resources\icons8_library_26px.png" />
     <Content Include="Resources\icons8_pencil_30px.png" />
     <Content Include="Resources\icons8_plus_math_30px.png" />
     <Content Include="Resources\icons8_subtract_30px.png" />
+    <Content Include="Resources\T_back.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

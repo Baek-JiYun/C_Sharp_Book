@@ -49,10 +49,12 @@ namespace BookProject
                 user.UserId = textBox_Id.Text;
                 user.Name = textBox_Name.Text;
 
+                DBHelper.insertUserQuery(textBox_Id.Text, textBox_Name.Text);
+
+                DataManager.Load();
+
                 dataGridView_user.DataSource = null;
                 dataGridView_user.DataSource = DataManager.Users;
-
-                DBHelper.insertUserQuery(textBox_Id.Text, textBox_Name.Text);
             }
         }
 
@@ -67,10 +69,12 @@ namespace BookProject
                     user.UserId=textBox_Id.Text;
                     user.Name=textBox_Name.Text;
 
-                    dataGridView_user.DataSource=null;
-                    dataGridView_user.DataSource=DataManager.Users;
-
                     DBHelper.updateUserQuery(user.UserId, user.Name);
+
+                    DataManager.Load();
+
+                    dataGridView_user.DataSource = null;
+                    dataGridView_user.DataSource = DataManager.Users;
                 }
             }
             if(user == null)
@@ -90,9 +94,12 @@ namespace BookProject
                     user= DataManager.Users[i];
                     user.UserId =textBox_Id.Text;
 
-                    dataGridView_user.DataSource =null;
-                    dataGridView_user.DataSource = DataManager.Users;
                     DBHelper.UserDeleteQuery(user.UserId);
+
+                    DataManager.Load();
+
+                    dataGridView_user.DataSource = null;
+                    dataGridView_user.DataSource = DataManager.Users;
                 }
             }
             if(user==null)

@@ -52,29 +52,35 @@ namespace BookProject
                 book.Page = int.Parse(textBox_page.Text);
                 book.isBorrowed = 0;
 
+                DBHelper.insertQuery(textBox_Isbn.Text, textBox_bookName.Text, textBox_publisher.Text, book.Page,book.isBorrowed);
+
+                DataManager.Load();
+
                 dataGridView_book.DataSource = null;
                 dataGridView_book.DataSource = DataManager.Books;
-
-               DBHelper.insertQuery(textBox_Isbn.Text, textBox_bookName.Text, textBox_publisher.Text, book.Page,book.isBorrowed);
+           
             }
         }
 
         private void button_modify_Click(object sender, EventArgs e)
         {
-            Book book = null; // book은 아무데도 가리키지않음.
+            Book book = null; 
             for (int i = 0; i < DataManager.Books.Count; i++)
             {
                 if (DataManager.Books[i].Isbn == textBox_Isbn.Text)
                 {
-                    book = DataManager.Books[i];//Books의 i번째를 가리키게 됨 (얕은 복사 = 참조복사)
+                    book = DataManager.Books[i];
                     book.Isbn = textBox_Isbn.Text;
-                    book.Name = textBox_bookName.Text; //book의 값이 변경되면 books의 i번째꺼가 값이 변경됨
+                    book.Name = textBox_bookName.Text; 
                     book.Publisher = textBox_publisher.Text;
                     book.Page = int.Parse(textBox_page.Text);
 
+                    DataManager.BookSave(book.Isbn,book.Name,book.Publisher,book.Page);
+
+                    DataManager.Load();
+
                     dataGridView_book.DataSource = null;
                     dataGridView_book.DataSource = DataManager.Books;
-                    DataManager.BookSave(book.Isbn,book.Name,book.Publisher,book.Page);
                 }
             }
             if (book == null)
@@ -103,6 +109,8 @@ namespace BookProject
                 MessageBox.Show("존재하지 않는 도서입니다.");
             else
             {
+                DataManager.Load();
+
                 dataGridView_book.DataSource = null;
                 if (DataManager.Books.Count > 0)
                     dataGridView_book.DataSource = DataManager.Books;

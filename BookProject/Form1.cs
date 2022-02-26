@@ -49,7 +49,7 @@ namespace BookProject
             textBox_bookName.Text = book.Name;
         }
 
-        private void bookManeger_Click(object sender, EventArgs e)
+        private void bookManager_Click(object sender, EventArgs e)
         {
             new Book_Form().ShowDialog();
 
@@ -90,7 +90,7 @@ namespace BookProject
                         dataGridView_bookManager.DataSource = null;
                         dataGridView_bookManager.DataSource = DataManager.Books;
                         DataManager.Save(book.Isbn, book.UserId, book.isBorrowed);
-                        MessageBox.Show($"{book.Name}이/가 {user.Name}님께 대여되었습니다.");
+                        MessageBox.Show($"{user.Name}님께 정상 대여되었습니다.");
                     }
                     else
                     {
@@ -119,8 +119,6 @@ namespace BookProject
                         book.Isbn = textBox_Isbn.Text;
                         book.isBorrowed=0;
 
-                        dataGridView_bookManager.DataSource=null;
-                        dataGridView_bookManager.DataSource=DataManager.Books;
                         DataManager.Save(book.Isbn, "", book.isBorrowed);
                         
                         TimeSpan timeDiff = DateTime.Now - date;
@@ -131,6 +129,11 @@ namespace BookProject
                         else
                         {
                             MessageBox.Show("정상반납 되었습니다.");
+
+                            DataManager.Load();
+
+                            dataGridView_bookManager.DataSource = null;
+                            dataGridView_bookManager.DataSource = DataManager.Books;
                         }
                     }
                     else
