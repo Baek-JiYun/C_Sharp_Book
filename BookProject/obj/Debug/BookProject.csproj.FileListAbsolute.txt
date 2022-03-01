@@ -1,7 +1,6 @@
 C:\Users\user\source\repos\BookProject\BookProject\bin\Debug\BookProject.exe.config
 C:\Users\user\source\repos\BookProject\BookProject\bin\Debug\BookProject.exe
 C:\Users\user\source\repos\BookProject\BookProject\bin\Debug\BookProject.pdb
-C:\Users\user\source\repos\BookProject\BookProject\obj\Debug\BookProject.csproj.AssemblyReference.cache
 C:\Users\user\source\repos\BookProject\BookProject\obj\Debug\BookProject.csproj.SuggestedBindingRedirects.cache
 C:\Users\user\source\repos\BookProject\BookProject\obj\Debug\BookProject.Form1.resources
 C:\Users\user\source\repos\BookProject\BookProject\obj\Debug\BookProject.Properties.Resources.resources
@@ -9,4 +8,6 @@ C:\Users\user\source\repos\BookProject\BookProject\obj\Debug\BookProject.csproj.
 C:\Users\user\source\repos\BookProject\BookProject\obj\Debug\BookProject.csproj.CoreCompileInputs.cache
 C:\Users\user\source\repos\BookProject\BookProject\obj\Debug\BookProject.exe
 C:\Users\user\source\repos\BookProject\BookProject\obj\Debug\BookProject.pdb
-C:\Users\user\source\repos\BookProject\BookProject\obj\Debug\BookProject.Form2.resources
+C:\Users\user\source\repos\BookProject\BookProject\obj\Debug\BookProject.Book_Form.resources
+C:\Users\user\source\repos\BookProject\BookProject\obj\Debug\BookProject.User_Form.resources
+C:\Users\user\source\repos\BookProject\BookProject\obj\Debug\BookProject.csproj.AssemblyReference.cache
