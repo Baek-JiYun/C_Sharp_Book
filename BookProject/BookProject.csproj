@@ -106,12 +106,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\back.png" />
+    <None Include="Resources\back_user.png" />
     <Content Include="Resources\icons8_book_and_pencil_30px.png" />
     <Content Include="Resources\icons8_delete_50px.png" />
     <Content Include="Resources\icons8_find_user_male_30px.png" />
     <Content Include="Resources\icons8_library_26px.png" />
     <Content Include="Resources\icons8_pencil_30px.png" />
     <Content Include="Resources\icons8_plus_math_30px.png" />
+    <Content Include="Resources\icons8_reset_26px.png" />
+    <Content Include="Resources\icons8_reset_32px.png" />
+    <Content Include="Resources\icons8_search_30px.png" />
     <Content Include="Resources\icons8_subtract_30px.png" />
     <Content Include="Resources\T_back.png" />
   </ItemGroup>

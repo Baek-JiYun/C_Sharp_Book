@@ -95,5 +95,50 @@ namespace BookProject
                 System.Windows.Forms.MessageBox.Show(exception.Message + Environment.NewLine + exception.StackTrace);
             }
         }
+
+        public static void BookSearch(string search_book_Name)
+        {
+            try
+            {
+                DBHelper.BookSearch(search_book_Name);
+                Books.Clear();
+                foreach (DataRow item in DBHelper.ds.Tables[0].Rows)
+                {
+                    Book book = new Book();
+                    book.Isbn = item["Isbn"].ToString();
+                    book.Name = item["name"].ToString();
+                    book.Publisher = item["Publisher"].ToString();
+                    book.Page = int.Parse(item["Page"].ToString());
+                    book.UserId = item["UserId"].ToString();
+                    book.isBorrowed = int.Parse(item["isBorrowed"].ToString());
+                    book.BorrowedAt = item["BorrowedAt"].ToString() == "" ? new DateTime() : DateTime.Parse(item["BorrowedAt"].ToString());
+                    Books.Add(book);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message + Environment.NewLine + ex.StackTrace);
+            }
+        }
+
+        public static void UserSearch(string searchUser)
+        {
+            try
+            {
+                DBHelper.UserSearch(searchUser);
+                Users.Clear();
+                foreach (DataRow item in DBHelper.ds.Tables[0].Rows)
+                {
+                    User user = new User();
+                    user.UserId = item["UserId"].ToString();
+                    user.Name = item["name"].ToString();
+                    Users.Add(user);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message + Environment.NewLine + ex.StackTrace);
+            }
+        }
     }
 }

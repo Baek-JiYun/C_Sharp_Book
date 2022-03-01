@@ -29,7 +29,12 @@ namespace BookProject
         {
             DataManager.Load();
             dataGridView_bookManager.DataSource = null;
-            dataGridView_bookManager.DataSource = DataManager.Books;
+            if (DataManager.Books.Count > 0)
+                dataGridView_bookManager.DataSource = DataManager.Books;
+
+            dataGridView_user.DataSource = null;
+            if (DataManager.Users.Count > 0)
+                dataGridView_user.DataSource = DataManager.Users;
         }
 
         private void timer_now_Tick(object sender, EventArgs e)
@@ -53,20 +58,14 @@ namespace BookProject
         {
             new Book_Form().ShowDialog();
 
-            DataManager.Load();
-            dataGridView_bookManager.DataSource = null;
-            if (DataManager.Books.Count > 0)
-                dataGridView_bookManager.DataSource = DataManager.Books;
+            ReLoad();
         }
 
         private void userManager_Click(object sender, EventArgs e)
         {
             new User_Form().ShowDialog();
 
-            DataManager.Load();
-            dataGridView_user.DataSource = null;
-            if (DataManager.Users.Count > 0)
-                dataGridView_user.DataSource = DataManager.Users;
+            ReLoad();
         }
 
         private void button_Borrow_Click(object sender, EventArgs e)
@@ -130,10 +129,7 @@ namespace BookProject
                         {
                             MessageBox.Show("정상반납 되었습니다.");
 
-                            DataManager.Load();
-
-                            dataGridView_bookManager.DataSource = null;
-                            dataGridView_bookManager.DataSource = DataManager.Books;
+                            ReLoad();
                         }
                     }
                     else
@@ -147,6 +143,45 @@ namespace BookProject
                 }
 
             }
+        }
+
+        private void button_search_Click(object sender, EventArgs e)
+        { 
+            bool chkBook = false;
+            if (textBox_search.Text.Trim() == "")
+                MessageBox.Show("도서 제목을 입력하세요.");
+            else
+            {
+                string[] search_book = textBox_search.Text.Split(' ');
+                string search_book_Name=search_book[0].Trim();
+
+                for(int i=0; i < DataManager.Books.Count; i++)
+                {
+                    if(DataManager.Books[i].Name.Contains(search_book_Name))
+                    {
+                        DataManager.BookSearch(search_book_Name);
+
+                       
+                        chkBook = true;
+                    }
+
+                }
+                if (chkBook==false)
+                {
+                    MessageBox.Show("조회된 도서가 없습니다.");
+                }
+                else
+                {
+                    dataGridView_bookManager.DataSource = null;
+                    if (DataManager.Books.Count > 0)
+                        dataGridView_bookManager.DataSource = DataManager.Books;
+                }
+            }
+        }
+
+        private void button_reset_Click(object sender, EventArgs e)
+        {
+            ReLoad();
         }
     }
 }

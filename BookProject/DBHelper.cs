@@ -150,6 +150,30 @@ namespace BookProject
             }
         }
 
+        public static void UserSearch(string searchUser)
+        {
+            try
+            {
+                ConnectDB();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "select * from BookUser where userId like '%" + searchUser + "%'";
+
+                da = new SqlDataAdapter(cmd);
+                ds = new DataSet();
+                da.Fill(ds, "UserManager");
+                dt = ds.Tables[0];
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+        }
+
         public static void UserDeleteQuery(string userId)
         {
             try
@@ -203,6 +227,29 @@ namespace BookProject
             }
         }
 
+        public static void BookSearch(string search_book)
+        {
+            try
+            {
+                ConnectDB();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "select * from BookManager where Name like '%" + search_book + "%'";
+
+                da = new SqlDataAdapter(cmd);
+                ds = new DataSet();
+                da.Fill(ds, "BookManager");
+                dt = ds.Tables[0];
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+        }
 
         public static void updateBookQuery(string isbn, string name, string publisher, int page)
         {

@@ -45,12 +45,21 @@
             this.toolStripStatusLabel_now = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView_user = new System.Windows.Forms.DataGridView();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox_search = new System.Windows.Forms.TextBox();
+            this.button_reset = new System.Windows.Forms.Button();
+            this.button_search = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button_close = new System.Windows.Forms.Button();
+            this.userManager = new System.Windows.Forms.Button();
+            this.bookManeger = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.userIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button_close = new System.Windows.Forms.Button();
             this.isbnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.publisherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,21 +68,18 @@
             this.isBorrowedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.borrowedAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.userManager = new System.Windows.Forms.Button();
-            this.bookManeger = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_bookManager)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_user)).BeginInit();
+            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -87,7 +93,8 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(166, 129);
+            this.groupBox1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.groupBox1.Location = new System.Drawing.Point(166, 106);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(409, 133);
             this.groupBox1.TabIndex = 2;
@@ -96,43 +103,47 @@
             // 
             // button_Return
             // 
+            this.button_Return.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(219)))), ((int)(((byte)(207)))));
+            this.button_Return.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Return.Location = new System.Drawing.Point(304, 76);
             this.button_Return.Name = "button_Return";
             this.button_Return.Size = new System.Drawing.Size(75, 23);
             this.button_Return.TabIndex = 7;
             this.button_Return.Text = "반납";
-            this.button_Return.UseVisualStyleBackColor = true;
+            this.button_Return.UseVisualStyleBackColor = false;
             this.button_Return.Click += new System.EventHandler(this.button_Return_Click);
             // 
             // button_Borrow
             // 
+            this.button_Borrow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(219)))), ((int)(((byte)(207)))));
+            this.button_Borrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Borrow.Location = new System.Drawing.Point(304, 36);
             this.button_Borrow.Name = "button_Borrow";
             this.button_Borrow.Size = new System.Drawing.Size(75, 23);
             this.button_Borrow.TabIndex = 6;
             this.button_Borrow.Text = "대여";
-            this.button_Borrow.UseVisualStyleBackColor = true;
+            this.button_Borrow.UseVisualStyleBackColor = false;
             this.button_Borrow.Click += new System.EventHandler(this.button_Borrow_Click);
             // 
             // textBox_userId
             // 
             this.textBox_userId.Location = new System.Drawing.Point(105, 84);
             this.textBox_userId.Name = "textBox_userId";
-            this.textBox_userId.Size = new System.Drawing.Size(166, 21);
+            this.textBox_userId.Size = new System.Drawing.Size(166, 23);
             this.textBox_userId.TabIndex = 5;
             // 
             // textBox_bookName
             // 
             this.textBox_bookName.Location = new System.Drawing.Point(105, 57);
             this.textBox_bookName.Name = "textBox_bookName";
-            this.textBox_bookName.Size = new System.Drawing.Size(166, 21);
+            this.textBox_bookName.Size = new System.Drawing.Size(166, 23);
             this.textBox_bookName.TabIndex = 4;
             // 
             // textBox_Isbn
             // 
             this.textBox_Isbn.Location = new System.Drawing.Point(105, 30);
             this.textBox_Isbn.Name = "textBox_Isbn";
-            this.textBox_Isbn.Size = new System.Drawing.Size(166, 21);
+            this.textBox_Isbn.Size = new System.Drawing.Size(166, 23);
             this.textBox_Isbn.TabIndex = 3;
             // 
             // label3
@@ -140,7 +151,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(24, 87);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 12);
+            this.label3.Size = new System.Drawing.Size(59, 15);
             this.label3.TabIndex = 2;
             this.label3.Text = "사용자 ID";
             // 
@@ -149,16 +160,16 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(24, 60);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 12);
+            this.label2.Size = new System.Drawing.Size(59, 15);
             this.label2.TabIndex = 1;
-            this.label2.Text = "도서 이름";
+            this.label2.Text = "도서 제목";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(26, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 12);
+            this.label1.Size = new System.Drawing.Size(29, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Isbn";
             // 
@@ -166,6 +177,7 @@
             // 
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(238)))));
             this.groupBox2.Controls.Add(this.dataGridView_bookManager);
+            this.groupBox2.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.groupBox2.Location = new System.Drawing.Point(122, 328);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(796, 248);
@@ -211,6 +223,7 @@
             // 
             // toolStripStatusLabel_now
             // 
+            this.toolStripStatusLabel_now.BackColor = System.Drawing.Color.WhiteSmoke;
             this.toolStripStatusLabel_now.Name = "toolStripStatusLabel_now";
             this.toolStripStatusLabel_now.Size = new System.Drawing.Size(10, 17);
             this.toolStripStatusLabel_now.Text = ".";
@@ -219,7 +232,8 @@
             // 
             this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(238)))));
             this.groupBox3.Controls.Add(this.dataGridView_user);
-            this.groupBox3.Location = new System.Drawing.Point(637, 96);
+            this.groupBox3.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.groupBox3.Location = new System.Drawing.Point(621, 97);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(257, 232);
             this.groupBox3.TabIndex = 6;
@@ -240,10 +254,67 @@
             this.dataGridView_user.Size = new System.Drawing.Size(245, 206);
             this.dataGridView_user.TabIndex = 0;
             // 
+            // groupBox4
+            // 
+            this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(238)))));
+            this.groupBox4.Controls.Add(this.button_reset);
+            this.groupBox4.Controls.Add(this.button_search);
+            this.groupBox4.Controls.Add(this.textBox_search);
+            this.groupBox4.Controls.Add(this.label5);
+            this.groupBox4.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.groupBox4.Location = new System.Drawing.Point(166, 242);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(409, 80);
+            this.groupBox4.TabIndex = 11;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "도서 검색";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(24, 36);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 15);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "도서 제목";
+            // 
+            // textBox_search
+            // 
+            this.textBox_search.Location = new System.Drawing.Point(103, 33);
+            this.textBox_search.Name = "textBox_search";
+            this.textBox_search.Size = new System.Drawing.Size(166, 23);
+            this.textBox_search.TabIndex = 8;
+            // 
+            // button_reset
+            // 
+            this.button_reset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(219)))), ((int)(((byte)(207)))));
+            this.button_reset.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_reset.Image = global::BookProject.Properties.Resources.icons8_reset_32px;
+            this.button_reset.Location = new System.Drawing.Point(347, 22);
+            this.button_reset.Name = "button_reset";
+            this.button_reset.Size = new System.Drawing.Size(40, 40);
+            this.button_reset.TabIndex = 12;
+            this.button_reset.UseVisualStyleBackColor = false;
+            this.button_reset.Click += new System.EventHandler(this.button_reset_Click);
+            // 
+            // button_search
+            // 
+            this.button_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(219)))), ((int)(((byte)(207)))));
+            this.button_search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_search.Image = global::BookProject.Properties.Resources.icons8_search_30px;
+            this.button_search.Location = new System.Drawing.Point(297, 22);
+            this.button_search.Name = "button_search";
+            this.button_search.Size = new System.Drawing.Size(40, 40);
+            this.button_search.TabIndex = 8;
+            this.button_search.UseVisualStyleBackColor = false;
+            this.button_search.Click += new System.EventHandler(this.button_search_Click);
+            // 
             // label4
             // 
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(219)))), ((int)(((byte)(207)))));
             this.label4.Font = new System.Drawing.Font("맑은 고딕", 23F, System.Drawing.FontStyle.Bold);
+            this.label4.Image = global::BookProject.Properties.Resources.T_back;
             this.label4.Location = new System.Drawing.Point(161, 15);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(697, 52);
@@ -253,12 +324,71 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackgroundImage = global::BookProject.Properties.Resources.icons8_library_26px;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.Location = new System.Drawing.Point(15, 15);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(56, 44);
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
+            // 
+            // button_close
+            // 
+            this.button_close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button_close.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_close.Image = global::BookProject.Properties.Resources.icons8_delete_50px;
+            this.button_close.Location = new System.Drawing.Point(927, 0);
+            this.button_close.Name = "button_close";
+            this.button_close.Size = new System.Drawing.Size(25, 27);
+            this.button_close.TabIndex = 4;
+            this.button_close.UseVisualStyleBackColor = true;
+            this.button_close.Click += new System.EventHandler(this.button_close_Click);
+            // 
+            // userManager
+            // 
+            this.userManager.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(238)))));
+            this.userManager.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.userManager.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.userManager.Image = global::BookProject.Properties.Resources.icons8_find_user_male_30px;
+            this.userManager.Location = new System.Drawing.Point(15, 208);
+            this.userManager.Name = "userManager";
+            this.userManager.Size = new System.Drawing.Size(56, 57);
+            this.userManager.TabIndex = 1;
+            this.userManager.UseVisualStyleBackColor = false;
+            this.userManager.Click += new System.EventHandler(this.userManager_Click);
+            // 
+            // bookManeger
+            // 
+            this.bookManeger.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(238)))));
+            this.bookManeger.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bookManeger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bookManeger.Image = global::BookProject.Properties.Resources.icons8_book_and_pencil_30px;
+            this.bookManeger.Location = new System.Drawing.Point(15, 103);
+            this.bookManeger.Name = "bookManeger";
+            this.bookManeger.Size = new System.Drawing.Size(56, 57);
+            this.bookManeger.TabIndex = 0;
+            this.bookManeger.UseVisualStyleBackColor = false;
+            this.bookManeger.Click += new System.EventHandler(this.bookManager_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(88, 604);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(219)))), ((int)(((byte)(207)))));
+            this.pictureBox3.BackgroundImage = global::BookProject.Properties.Resources.back1;
+            this.pictureBox3.Location = new System.Drawing.Point(112, 90);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(817, 503);
+            this.pictureBox3.TabIndex = 10;
+            this.pictureBox3.TabStop = false;
             // 
             // userIdDataGridViewTextBoxColumn1
             // 
@@ -275,18 +405,6 @@
             // userBindingSource
             // 
             this.userBindingSource.DataSource = typeof(BookProject.User);
-            // 
-            // button_close
-            // 
-            this.button_close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button_close.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_close.Location = new System.Drawing.Point(892, 0);
-            this.button_close.Name = "button_close";
-            this.button_close.Size = new System.Drawing.Size(25, 27);
-            this.button_close.TabIndex = 4;
-            this.button_close.UseVisualStyleBackColor = true;
-            this.button_close.Click += new System.EventHandler(this.button_close_Click);
             // 
             // isbnDataGridViewTextBoxColumn
             // 
@@ -334,53 +452,13 @@
             // 
             this.bookBindingSource.DataSource = typeof(BookProject.Book);
             // 
-            // userManager
-            // 
-            this.userManager.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(238)))));
-            this.userManager.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.userManager.Location = new System.Drawing.Point(15, 208);
-            this.userManager.Name = "userManager";
-            this.userManager.Size = new System.Drawing.Size(56, 57);
-            this.userManager.TabIndex = 1;
-            this.userManager.UseVisualStyleBackColor = false;
-            this.userManager.Click += new System.EventHandler(this.userManager_Click);
-            // 
-            // bookManeger
-            // 
-            this.bookManeger.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(238)))));
-            this.bookManeger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bookManeger.Location = new System.Drawing.Point(15, 103);
-            this.bookManeger.Name = "bookManeger";
-            this.bookManeger.Size = new System.Drawing.Size(56, 57);
-            this.bookManeger.TabIndex = 0;
-            this.bookManeger.UseVisualStyleBackColor = false;
-            this.bookManeger.Click += new System.EventHandler(this.bookManager_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(88, 601);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(219)))), ((int)(((byte)(207)))));
-            this.pictureBox3.BackgroundImage = global::BookProject.Properties.Resources.back1;
-            this.pictureBox3.Location = new System.Drawing.Point(112, 90);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(817, 503);
-            this.pictureBox3.TabIndex = 10;
-            this.pictureBox3.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(219)))), ((int)(((byte)(207)))));
             this.ClientSize = new System.Drawing.Size(952, 626);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.groupBox3);
@@ -404,11 +482,13 @@
             this.statusStrip1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_user)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -450,6 +530,11 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button button_search;
+        private System.Windows.Forms.TextBox textBox_search;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button_reset;
     }
 }
 

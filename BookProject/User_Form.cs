@@ -21,6 +21,14 @@ namespace BookProject
             }
             dataGridView_user.CellClick += user_cellclick;
         }
+        private void ReLoad()
+        {
+            DataManager.Load();           
+
+            dataGridView_user.DataSource = null;
+            if (DataManager.Users.Count > 0)
+                dataGridView_user.DataSource = DataManager.Users;
+        }
 
         private void button_close_Click(object sender, EventArgs e)
         {
@@ -51,10 +59,7 @@ namespace BookProject
 
                 DBHelper.insertUserQuery(textBox_Id.Text, textBox_Name.Text);
 
-                DataManager.Load();
-
-                dataGridView_user.DataSource = null;
-                dataGridView_user.DataSource = DataManager.Users;
+                ReLoad();
             }
         }
 
@@ -71,10 +76,7 @@ namespace BookProject
 
                     DBHelper.updateUserQuery(user.UserId, user.Name);
 
-                    DataManager.Load();
-
-                    dataGridView_user.DataSource = null;
-                    dataGridView_user.DataSource = DataManager.Users;
+                    ReLoad();
                 }
             }
             if(user == null)
@@ -96,10 +98,7 @@ namespace BookProject
 
                     DBHelper.UserDeleteQuery(user.UserId);
 
-                    DataManager.Load();
-
-                    dataGridView_user.DataSource = null;
-                    dataGridView_user.DataSource = DataManager.Users;
+                    ReLoad();
                 }
             }
             if(user==null)
@@ -110,6 +109,40 @@ namespace BookProject
             User user = dataGridView_user.CurrentRow.DataBoundItem as User;
             textBox_Id.Text = user.UserId;
             textBox_Name.Text = user.Name;
+        }
+
+        private void button_reset_Click(object sender, EventArgs e)
+        {
+            ReLoad();
+        }
+
+        private void button_search_Click(object sender, EventArgs e)
+        {
+            string searchUser = textBox_search.Text.Trim();
+            bool chkUser = false;
+            if(textBox_search.Text.Trim() =="")
+                MessageBox.Show("ID를 입력해주세요");
+            else
+            {
+                for(int i = 0; i<DataManager.Users.Count; i++)
+                {
+                    if(DataManager.Users[i].UserId == textBox_search.Text)
+                    {
+                        DataManager.UserSearch(searchUser);
+                        chkUser = true;
+                    }
+                }
+                if (chkUser == false)
+                {
+                    MessageBox.Show("조회된 사용자가 없습니다.");
+                }
+                else
+                {
+                    dataGridView_user.DataSource = null;
+                    if(DataManager.Users.Count > 0)
+                        dataGridView_user.DataSource=DataManager.Users;
+                }
+            }
         }
     }
 }

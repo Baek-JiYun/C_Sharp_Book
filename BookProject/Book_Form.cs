@@ -22,6 +22,14 @@ namespace BookProject
 
         }
 
+        private void ReLoad()
+        {
+            DataManager.Load();
+            dataGridView_book.DataSource = null;
+            if (DataManager.Books.Count > 0)
+                dataGridView_book.DataSource = DataManager.Books;
+        }
+
         private void button_close_Click(object sender, EventArgs e)
         {
             Dispose();
@@ -54,11 +62,9 @@ namespace BookProject
 
                 DBHelper.insertQuery(textBox_Isbn.Text, textBox_bookName.Text, textBox_publisher.Text, book.Page,book.isBorrowed);
 
-                DataManager.Load();
+                ReLoad();
 
-                dataGridView_book.DataSource = null;
-                dataGridView_book.DataSource = DataManager.Books;
-           
+
             }
         }
 
@@ -77,10 +83,7 @@ namespace BookProject
 
                     DataManager.BookSave(book.Isbn,book.Name,book.Publisher,book.Page);
 
-                    DataManager.Load();
-
-                    dataGridView_book.DataSource = null;
-                    dataGridView_book.DataSource = DataManager.Books;
+                    ReLoad();
                 }
             }
             if (book == null)
@@ -109,11 +112,7 @@ namespace BookProject
                 MessageBox.Show("존재하지 않는 도서입니다.");
             else
             {
-                DataManager.Load();
-
-                dataGridView_book.DataSource = null;
-                if (DataManager.Books.Count > 0)
-                    dataGridView_book.DataSource = DataManager.Books;
+                ReLoad();
             }
         }
         private void dataGridView_book_CellClick(object sender, DataGridViewCellEventArgs e)
