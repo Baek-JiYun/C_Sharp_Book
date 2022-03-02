@@ -94,7 +94,9 @@ private void ReLoad()
   
   <br>
   
-### 🔸 도서 관리 화면
+### 🔸 사용자 관리 화면
+- 사용자 관리 기능(추가, 수정, 삭제)이 있으며, ID가 겹치면 등록되지 않습니다.
+- <b>사용자 검색</b> : ID와 DB에 저장된 ID를 비교해 정보를 불러옵니다. reset버튼을 누르면 다시 전체 사용자 목록으로 바뀝니다.
   
 <img src="img/userForm.PNG" width="460" height="370" >
   
