@@ -137,16 +137,8 @@ private void ReLoad()
 </div>
 </details>
   
-  <br>
-  
-### 🔸 도서 관리 화면
-- 도서 관리 기능(추가, 수정, 삭제)이 있으며, isbn이 겹치면 등록되지 않습니다. 
-- isBorrowed는 DB에서 Default 값으로 0이 자동으로 입력됩니다. 
-  
-<img src="img/bookForm.PNG" width="560" height="350" >
-  
 <details>
-<summary>코드보기</summary>
+<summary>대여 / </summary>
 <div markdown="1">
   
 ```C#
@@ -229,10 +221,72 @@ private void button_Return_Click(object sender, EventArgs e)
     }
 }
   
+//DataManager
+public static void Save(string isbn, string userId, int isBorrowed)
+{
+    try
+    {
+        DBHelper.updateBorrowQuery(isbn, userId, isBorrowed);
+    }
+    catch (Exception exception)
+    {
+        System.Windows.Forms.MessageBox.Show(exception.Message + Environment.NewLine + exception.StackTrace);
+    }
+}
+  
+//DBHelper
+public static void updateBorrowQuery(string isbn, string userId, int isBorrowed)
+{
+    try
+    {
+        ConnectDB();
+        SqlCommand cmd = new SqlCommand();
+        cmd.Connection = conn;
+        cmd.CommandType = CommandType.Text;
+
+        string sqlcommand;
+        if (isBorrowed == 1) // 넘어온 isBorrowed값이 1이라면 대여
+        {
+            sqlcommand = "update bookmanager set UserId=@p1,isBorrowed=@p2,BorrowedAt=@p3 where isbn=@p4";
+
+            cmd.Parameters.AddWithValue("@p1", userId);
+            cmd.Parameters.AddWithValue("@p2", isBorrowed);
+            cmd.Parameters.AddWithValue("@p3", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"));
+            cmd.Parameters.AddWithValue("@p4", isbn);
+        }
+        else //넘어온 isBorrowed값이 0이라면 반납
+        {
+            sqlcommand = "update bookmanager set userId=null,isBorrowed=0,BorrowedAt=null where isbn=@p1";
+
+            cmd.Parameters.AddWithValue("@p1", isbn);
+        }
+
+        cmd.CommandText = sqlcommand;
+        cmd.ExecuteNonQuery();
+
+        conn.Close();
+    }
+    catch (Exception ex)
+    {
+        conn.Close();
+        System.Windows.Forms.MessageBox.Show(ex.Message);
+    }
+}
+  
 ```
   
 </div>
 </details>
+  
+  <br>
+  
+### 🔸 도서 관리 화면
+- 도서 관리 기능(추가, 수정, 삭제)이 있으며, isbn이 겹치면 등록되지 않습니다. 
+- isBorrowed는 DB에서 Default 값으로 0이 자동으로 입력됩니다. 
+  
+<img src="img/bookForm.PNG" width="560" height="350" >
+  
+
   
   <br>
   
