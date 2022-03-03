@@ -21,10 +21,10 @@
 - <b>도서 검색</b> : 제목을 비교해 정보를 불러옵니다. reset버튼을 누르면 다시 전체목록으로 바뀝니다.
 - <b>도서 및 사용자 관리</b> : 프로그램 왼쪽 버튼으로 도서관리와 사용자관리 폼으로 이동됩니다.
 
-<img src="img/main.PNG" width="560" height="350" >
+<img src="img/main.PNG" width="560" height="360" >
 
 
-<img src="img/search.PNG" width="560" height="350" >
+<img src="img/search.PNG" width="560" height="360" >
 
 <details>
 <summary>코드보기</summary>
@@ -138,7 +138,7 @@ private void ReLoad()
 </details>
   
 <details>
-<summary>대여 / </summary>
+<summary>대여 / 반납 </summary>
 <div markdown="1">
   
 ```C#
